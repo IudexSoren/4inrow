@@ -41,6 +41,9 @@ const createPlayer = () => {
   return wrap;
 }
 
+// Variable con el estado general del juego
+let gameState = null;
+
 const createPlayerEvents = (form) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -61,9 +64,10 @@ const createPlayerEvents = (form) => {
       name: e.target[1].value,
       score: 0
     }
-    // Crear juego
+    // Se inicializa y crea el juego
     initGameState(player1, player2);
-    // Establecer componente de juego
+    gameState = getGameState();
+    // Establecer componente game
     setComponent(game(player1, player2));
   });
 }

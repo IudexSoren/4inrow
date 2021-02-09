@@ -60,36 +60,68 @@ const game = (player1, player2) => {
 
 const gameEvents = (boardCell) => {
   boardCell.addEventListener('click', (e) => {
-    setToken(e.target);
+    const cell = e.target;
+    cell.appendChild(setToken(Number(cell.attributes['cell'].value)));
   });
 }
 
-const setToken = (cell) => {
-  setTime();
-  const gameState = getGameState();
-  const cellNumber = Number(cell.attributes['cell'].value);
+// Variable con el tiempo restante del turno actual
+let time = undefined;
+
+const setToken = (cellNumber) => {
   if (gameState.cells.includes(cellNumber)) {
+    // Crear ficha del jugador
     const token = document.createElement('div');
     token.classList.add('game__token');
     if (gameState.turn === 601) {
+      // Ficha del jugador rojo
       token.classList.add('game__token-red');
-      gameState.turn = 602;
+      // Cambio de turno al jugador azul
+      setTurn(602);
     } else if (gameState.turn === 602) {
+      // Ficha del jugador azul
       token.classList.add('game__token-blue');
-      gameState.turn = 601;
+      // Cambio de turno al jugador rojo
+      setTurn(601);
     }
-    cell.appendChild(token);
-    gameState.cells = gameState.cells.filter(c => c !== cellNumber);
-    if (cellNumber < 70) {
-      gameState.cells.push(cellNumber + 10);
-    }
+    // Se elimina la celda seleccionada
+    removeCell(cellNumber, gameState);
+    // Limpieza del contador de tiempo
+    time = setTime();
+    // Guardar estado del juego
     saveGameState(gameState);
+    return token;
+  }
+}
+
+const setTurn = (newTurn) => {
+  // Cambio de turno
+  gameState.turn = newTurn;
+}
+
+const removeCell = (cellNumber) => {
+  // Se elimina la celda seleccionada
+  gameState.cells = gameState.cells.filter(c => c !== cellNumber);
+  if (cellNumber < 70) {
+    // Agregar nueva celda disponible
+    gameState.cells.push(cellNumber + 10);
   }
 }
 
 const setTime = () => {
-  setInterval(() => {
-    console.log('D');
-    document.getElementById('time').innerText = Number(document.getElementById('time').innerText) - 1;
+  // Limpieza del contador de tiempo
+  if (time) {
+    clearInterval(time);
+    // Reinicio del contador de tiempo
+    document.getElementById('time').innerText = 30;
+  }
+  return setInterval(() => {
+    let turnTime = Number(document.getElementById('time').innerText);
+    if (turnTime > 0) {
+      turnTime = turnTime - 1;
+    } else {
+      turnTime = 30;
+    }
+    document.getElementById('time').innerText = turnTime;
   }, 1000);
 }
