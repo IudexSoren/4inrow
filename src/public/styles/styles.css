@@ -156,6 +156,10 @@
   font-weight: normal;
 }
 
+.game__player-turn-container small {
+  margin-left: 0.2em;
+}
+
 .game__player-turn-container .game__border-bottom {
   background-color: #3F3F3F;
   height: 1px;
@@ -192,7 +196,16 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
   width: 12.5%;
+}
+
+.game__board .game__board-row .game__board-cell span {
+  color: black;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
 }
 
 .game__board .game__board-row .game__board-cell .game__token {
@@ -257,10 +270,6 @@
       justify-content: space-around;
   margin-top: 8em;
   width: 80%;
-}
-
-.gameEnded__btn-container .btn:last-of-type {
-  margin-top: 1em;
 }
 
 .main-menu__menu-container {

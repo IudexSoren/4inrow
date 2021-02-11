@@ -1,6 +1,7 @@
 
 
 const mainMenu = () => {
+  localStorage.clear();
   const wrap = document.createElement('div');
   wrap.classList.add('main-menu__menu-container', 'animate__animated', 'animate__fadeIn');
   // Opción play

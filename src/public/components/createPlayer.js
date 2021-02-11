@@ -57,12 +57,14 @@ const createPlayerEvents = (form) => {
     const player1 = {
       uid: 601,
       name: e.target[0].value,
-      score: 0
+      score: 0,
+      cells: []
     }
     const player2 = {
       uid: 602,
       name: e.target[1].value,
-      score: 0
+      score: 0,
+      cells: []
     }
     // Se inicializa y crea el juego
     initGameState(player1, player2);
