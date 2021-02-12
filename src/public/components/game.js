@@ -10,7 +10,8 @@ const game = (player1, player2) => {
   // Jugador en turno - Inicia el jugador 1
   const player = document.createElement('h3');
   player.setAttribute('id', 'player-turn');
-  player.innerText = player1.name;
+  player.classList.add('red-turn');
+  player.innerText = 'Red\'s turn';
   // Tiempo
   const timeContainer = document.createElement('div');
   const timeCounter = document.createElement('span');
@@ -39,11 +40,11 @@ const game = (player1, player2) => {
     boardCell.classList.add('game__board-cell');
     // Número de celda
     // Únicamente usado para pruebas
-    /*
+
       const cellN = document.createElement('span');
       cellN.innerText = i;
       boardCell.appendChild(cellN);
-    */
+
     // Asignación de id de las celdas
     boardCell.setAttribute('cell', i);
     // Asignación del evento a cada celda
@@ -52,7 +53,7 @@ const game = (player1, player2) => {
   }
   // Botón de rendición
   const surrenderBtn = document.createElement('button');
-  surrenderBtn.classList.add('btn', 'btn-primary', 'btn-phone');
+  surrenderBtn.classList.add('btn', 'btn-phone');
   surrenderBtn.innerText = 'Surrender';
   gameEvents(surrenderBtn);
 
@@ -169,7 +170,15 @@ const setTurn = (newTurn) => {
   gameState.turn = newTurn;
   // Cambio de nombre al cambiar el turno
   const player = gameState.players.find(player => player.uid === newTurn);
-  document.getElementById('player-turn').innerText = player.name;
+  if (player.uid === 601) {
+    document.getElementById('player-turn').innerText = 'Red\'s turn';
+    document.getElementById('player-turn').classList.remove('blue-turn');
+    document.getElementById('player-turn').classList.add('red-turn');
+  } else if (player.uid === 602) {
+    document.getElementById('player-turn').innerText = 'Blue\'s turn';
+    document.getElementById('player-turn').classList.remove('red-turn');
+    document.getElementById('player-turn').classList.add('blue-turn');
+  }
 }
 
 const removeCell = (cellNumber) => {

@@ -34,3 +34,14 @@
         width: 10%;
     }
 }
+
+@media only screen and (min-width: 1080px) {
+    .game__game-container .score__score-container {
+        align-self: start;
+        grid-column: 1;
+    }
+
+    .gameEnded__ended-container .score__score-container {
+        grid-column: 1/4;
+    }
+}
