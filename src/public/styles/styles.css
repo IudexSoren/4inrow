@@ -302,10 +302,30 @@
     -ms-flex-item-align: start;
         -ms-grid-row-align: start;
         align-self: start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-grid-column: 1;
     grid-column: 1;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -ms-grid-column-align: center;
         justify-self: center;
+    margin: unset;
+  }
+  .game__game-container .game__player-turn-container h3 {
+    font-size: 2.5em;
+  }
+  .game__game-container .game__player-turn-container #time {
+    font-size: 1.5em;
+  }
+  .game__game-container .game__player-turn-container small {
+    font-size: 1em;
+  }
+  .game__game-container .game__player-turn-container .game__border-bottom {
+    margin: unset;
   }
   .game__game-container .game__board {
     -ms-flex-item-align: start;

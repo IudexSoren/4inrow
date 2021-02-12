@@ -88,8 +88,23 @@
         grid-template-rows: 5em 5em 30em;
         .game__player-turn-container {
             align-self: start;
+            flex-direction: column;
             grid-column: 1;
+            justify-content: center;
             justify-self: center;
+            margin: unset;
+            h3 {
+                font-size: 2.5em;
+            }
+            #time {
+                font-size: 1.5em;
+            }
+            small {
+                font-size: 1em;
+            }
+            .game__border-bottom {
+                margin: unset;
+            }
         }
         .game__board {
             align-self: start;
