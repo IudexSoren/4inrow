@@ -54,7 +54,8 @@ const diagonalLineRight = (playerCells) => {
     counter = 1;
     let numberCell = cellsArray[i] + 7;
     for (let j = 0; j < 3; j++) {
-      if ((residue(cellsArray[i]) === 1 || residue(numberCell) === 1) && counter > 3) {
+      if (residue(cellsArray[i]) < 4) break;
+      if (residue(numberCell) === 1 && counter > 3) {
         break;
       }
       if (cellsArray.includes(numberCell)) {
@@ -79,7 +80,8 @@ const diagonalLineLeft = (playerCells) => {
     counter = 1;
     let numberCell = cellsArray[i] + 9;
     for (let j = 0; j < 3; j++) {
-      if ((residue(cellsArray[i]) === 0 || residue(numberCell) === 0) && counter > 3) {
+      if (residue(cellsArray[i]) > 4) break;
+      if (residue(numberCell) === 0 && counter > 3) {
         break;
       }
       if (cellsArray.includes(numberCell)) {

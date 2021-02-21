@@ -31,6 +31,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding: 10px 0;
 }
 
 .base__footer {
@@ -299,24 +300,38 @@
         grid-template-rows: 5em 5em 30em;
   }
   .game__game-container .game__player-turn-container {
-    -ms-flex-item-align: start;
-        -ms-grid-row-align: start;
-        align-self: start;
-    -webkit-box-orient: vertical;
+    -ms-flex-item-align: center;
+        align-self: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -ms-grid-column: 1;
     grid-column: 1;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-grid-column-align: center;
-        justify-self: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    justify-self: center;
     margin: unset;
   }
   .game__game-container .game__player-turn-container h3 {
     font-size: 2.5em;
+    width: 50%;
+  }
+  .game__game-container .game__player-turn-container div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 50%;
   }
   .game__game-container .game__player-turn-container #time {
     font-size: 1.5em;
@@ -324,8 +339,9 @@
   .game__game-container .game__player-turn-container small {
     font-size: 1em;
   }
-  .game__game-container .game__player-turn-container .game__border-bottom {
+  .game__game-container .game__player-turn-container div.game__border-bottom {
     margin: unset;
+    width: 100%;
   }
   .game__game-container .game__board {
     -ms-flex-item-align: start;

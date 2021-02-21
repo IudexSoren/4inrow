@@ -33,7 +33,7 @@ const mainMenuEvents = (optionPlay, optionEnterRoom) => {
   });
 
   optionEnterRoom.addEventListener('click', () => {
-    setComponent(mainMenu());
+    // setComponent(mainMenu());
     alert('No disponible');
   });
 }

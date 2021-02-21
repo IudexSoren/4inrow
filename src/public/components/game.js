@@ -38,13 +38,12 @@ const game = (player1, player2) => {
     // Celdas
     const boardCell = document.createElement('div');
     boardCell.classList.add('game__board-cell');
-    // Número de celda
+    // Número de celdas
     // Únicamente usado para pruebas
-    /*
-      const cellN = document.createElement('span');
-      cellN.innerText = i;
-      boardCell.appendChild(cellN);
-    */
+      // const cellN = document.createElement('span');
+      // cellN.innerText = i;
+      // boardCell.appendChild(cellN);
+
     // Asignación de id de las celdas
     boardCell.setAttribute('cell', i);
     // Asignación del evento a cada celda
