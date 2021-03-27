@@ -50,22 +50,12 @@ const createPlayerEvents = (form) => {
     // Validación de campos de texto
     e.target.children[0].children[2].classList.toggle('error', !inputValidation(e.target[0].value));
     e.target.children[1].children[2].classList.toggle('error', !inputValidation(e.target[1].value));
-    if (document.querySelector('.error')) {
-      return;
-    }
+
+    if (document.querySelector('.error')) return;
+
     // Creación de jugadores
-    const player1 = {
-      uid: 601,
-      name: e.target[0].value,
-      score: 0,
-      cells: []
-    }
-    const player2 = {
-      uid: 602,
-      name: e.target[1].value,
-      score: 0,
-      cells: []
-    }
+    const player1 = { uid: 601, name: e.target[0].value, score: 0, cells: [] }
+    const player2 = { uid: 602, name: e.target[1].value, score: 0, cells: [] }
     // Se inicializa y crea el juego
     initGameState(player1, player2);
     gameState = getGameState();

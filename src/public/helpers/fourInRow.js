@@ -46,7 +46,7 @@ const verticalLine = (playerCells) => {
   return (counter === 4) ? true : false;
 }
 
-// Módulo != 1
+// Módulo != 1 ||
 const diagonalLineRight = (playerCells) => {
   let counter = 0;
   const cellsArray = [...playerCells];
@@ -54,7 +54,7 @@ const diagonalLineRight = (playerCells) => {
     counter = 1;
     let numberCell = cellsArray[i] + 7;
     for (let j = 0; j < 3; j++) {
-      if (residue(cellsArray[i]) < 4) break;
+      if ((residue(cellsArray[i]) < 4 && residue(cellsArray[i]) !== 0)) break;
       if (residue(numberCell) === 1 && counter > 3) {
         break;
       }
@@ -72,7 +72,7 @@ const diagonalLineRight = (playerCells) => {
   return (counter === 4) ? true : false;
 }
 
-// Módulo > 0
+// Módulo > 0 || Módulo > 5
 const diagonalLineLeft = (playerCells) => {
   let counter = 0;
   const cellsArray = [...playerCells];
@@ -80,7 +80,8 @@ const diagonalLineLeft = (playerCells) => {
     counter = 1;
     let numberCell = cellsArray[i] + 9;
     for (let j = 0; j < 3; j++) {
-      if (residue(cellsArray[i]) > 4) break;
+      debugger
+      if (residue(cellsArray[i]) === 0 || residue(cellsArray[i]) > 5) break;
       if (residue(numberCell) === 0 && counter > 3) {
         break;
       }
